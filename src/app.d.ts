@@ -18,3 +18,8 @@ declare class CartItem {
 	id: string
 	quantity: number
 }
+
+declare class StripeItem {
+	price: string
+	quantity: number
+}

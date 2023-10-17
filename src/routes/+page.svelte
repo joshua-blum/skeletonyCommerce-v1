@@ -1,23 +1,43 @@
 <script lang="ts">
 	import ProductCard from '$lib/productCard.svelte';
+	import { get } from 'svelte/store';
+	import { cartItems } from '../cart';
+	// import axios from 'axios';
 
 	const products : Product[] = [
 		{
-			id: "1",
+			id: "price_1O2MLyKQ9sDN5lZw5muc9Dt1",
 			name: "Coffee",
 			price: 5
 		},
 		{
-			id: "2",
+			id: "price_1O2MMwKQ9sDN5lZwwZnIbWDi",
 			name: "Sunglasses",
 			price: 10
 		},
 		{
-			id: "3",
+			id: "price_1O2MNEKQ9sDN5lZwwNIld2TF",
 			name: "Water bottle",
 			price: 15
 		}
 	]
+
+	async function checkout() {
+		await fetch("api/stripeCheckout", { //http://localhost:5173/api/stripeCheckout
+			method: "POST",
+			headers: {
+				"Content-Type": "applcation/json"  // allows us to send json in a body
+			},
+			body: JSON.stringify({
+				items: get(cartItems)
+			})
+		}).then((data) => {
+			return data.json()
+		}).then((data) => {
+			// forward user to the transaction url returned from stripe
+			window.location.replace(data.url);
+		})
+	}
 
 </script>
 
@@ -30,7 +50,7 @@
 		<ProductCard {product}/>
 		{/each}
 		<div class="col-span-3">
-			<button class="btn variant-filled-primary">Checkout with Stripe API</button>
+			<button class="btn variant-filled-primary" on:click={() => checkout()}>Checkout with Stripe API</button>
 		</div>
 	</div>
 </div>
