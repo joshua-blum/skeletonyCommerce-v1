@@ -15,6 +15,6 @@ declare class Product {
 }
 
 declare class CartItem {
-	id: string,
+	id: string
 	quantity: number
 }
