@@ -35,7 +35,8 @@
 			return data.json()
 		}).then((data) => {
 			// forward user to the transaction url returned from stripe
-			window.location.replace(data.url);
+			if(data.url) window.location.replace(data.url);
+			else alert('There are no items in the cart!');
 		})
 	}
 
@@ -50,7 +51,11 @@
 		<ProductCard {product}/>
 		{/each}
 		<div class="col-span-3">
+			<!-- {#if get(cartItems).length > 0} -->
 			<button class="btn variant-filled-primary" on:click={() => checkout()}>Checkout with Stripe API</button>
+			<!-- {:else} -->
+			<!-- <button class="btn variant-filled-secondary">Checkout with Stripe API</button> -->
+			<!-- {/if} -->
 		</div>
 	</div>
 </div>
