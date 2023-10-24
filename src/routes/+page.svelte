@@ -2,7 +2,6 @@
 	import ProductCard from '$lib/productCard.svelte';
 	import { get } from 'svelte/store';
 	import { cartItems } from '../cart';
-	// import axios from 'axios';
 
 	const products : Product[] = [
 		{
@@ -51,11 +50,7 @@
 		<ProductCard {product}/>
 		{/each}
 		<div class="col-span-3">
-			<!-- {#if get(cartItems).length > 0} -->
 			<button class="btn variant-filled-primary" on:click={() => checkout()}>Checkout with Stripe API</button>
-			<!-- {:else} -->
-			<!-- <button class="btn variant-filled-secondary">Checkout with Stripe API</button> -->
-			<!-- {/if} -->
 		</div>
 	</div>
 </div>
