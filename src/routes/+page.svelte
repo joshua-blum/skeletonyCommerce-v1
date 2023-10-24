@@ -23,7 +23,7 @@
 	]
 
 	async function checkout() {
-		await fetch("api/stripeCheckout", { //http://localhost:5173/api/stripeCheckout
+		await fetch("api/stripeCheckout", { //http://skeletony-commerce-v1.vercel.app/api/stripeCheckout
 			method: "POST",
 			headers: {
 				"Content-Type": "applcation/json"  // allows us to send json in a body
@@ -51,11 +51,7 @@
 		<ProductCard {product}/>
 		{/each}
 		<div class="col-span-3">
-			<!-- {#if get(cartItems).length > 0} -->
 			<button class="btn variant-filled-primary" on:click={() => checkout()}>Checkout with Stripe API</button>
-			<!-- {:else} -->
-			<!-- <button class="btn variant-filled-secondary">Checkout with Stripe API</button> -->
-			<!-- {/if} -->
 		</div>
 	</div>
 </div>

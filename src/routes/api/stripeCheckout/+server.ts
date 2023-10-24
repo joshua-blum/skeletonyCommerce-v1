@@ -30,8 +30,8 @@ export const POST: RequestHandler = async ( {request} ) => {
     const session = await stripe.checkout.sessions.create({
         line_items: lineItems,
         mode: 'payment',
-        success_url: "http://localhost:5173/success",
-        cancel_url: "http://localhost:5173/cancel"
+        success_url: "http://skeletony-commerce-v1.vercel.app/success",
+        cancel_url: "http://skeletony-commerce-v1.vercel.app/cancel"
     })
 
     return new Response(
