@@ -12,6 +12,7 @@ declare class Product {
 	id: string // Stripe ID
 	name: string  // "Product Name"
 	price: number  // e.g. 4
+	image: string // image of product
 }
 
 declare class CartItem {

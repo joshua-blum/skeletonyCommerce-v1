@@ -2,22 +2,26 @@
 	import ProductCard from '$lib/productCard.svelte';
 	import { get } from 'svelte/store';
 	import { cartItems } from '../cart';
+	import coffeeImage from '$lib/images/coffeeImage.jpeg';
 
 	const products : Product[] = [
 		{
 			id: "price_1O2MLyKQ9sDN5lZw5muc9Dt1",
 			name: "Coffee",
-			price: 5
+			price: 5,
+			image: coffeeImage
 		},
 		{
 			id: "price_1O2MMwKQ9sDN5lZwwZnIbWDi",
 			name: "Sunglasses",
-			price: 10
+			price: 10,
+			image: coffeeImage
 		},
 		{
 			id: "price_1O2MNEKQ9sDN5lZwwNIld2TF",
 			name: "Water bottle",
-			price: 15
+			price: 15,
+			image: coffeeImage
 		}
 	]
 
