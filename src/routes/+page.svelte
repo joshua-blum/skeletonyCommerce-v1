@@ -4,7 +4,9 @@
 	import { cartItems } from '../cart';
 	import coffeeImage from '$lib/images/coffeeImage.jpeg';
 
-	const products : Product[] = [
+	const products : Product[] =
+
+	[
 		{
 			id: "price_1O2MLyKQ9sDN5lZw5muc9Dt1",
 			name: "Coffee",
@@ -24,6 +26,7 @@
 			image: coffeeImage
 		}
 	]
+
 
 	async function checkout() {
 		await fetch("api/stripeCheckout", { //http://localhost:5173/api/stripeCheckout

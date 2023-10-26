@@ -17,7 +17,7 @@
 <div class="card">
     <header class="card-header">
         <h2>{product.name}</h2>
-        <h3>${product.price}.00</h3>
+        <h3>{product.price}</h3>
     </header>
     <div class="flex justify-center">
         <img class="product-picture" src={product.image} alt={`Image of ${product.name}`} />
